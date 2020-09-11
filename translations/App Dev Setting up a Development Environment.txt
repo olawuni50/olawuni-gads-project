@@ -1,0 +1,57 @@
+APP DEV: SETTING UP A DEVELOPMENT ENVIRONMENT V1.1
+
+OBJECTIVES:
+a)In this lab, you will learn how to perform the following tasks:
+b)Provision a Google Compute Engine instance.
+c)Connect to the instance using SSH.
+d)Install software on the instance.
+e)Verify the software installation.
+
+1: CREATING A COMPUTE ENGINE VIRTUAL MACHINE INSTANCE
+	
+	gcloud compute engine-create Vm instances "dev-instance"  --zone "us-central1-a" --region "us-central1" --identity and API access-Access Scope
+	 "Allow full access to all Cloud APIs."
+	 
+	
+2: INSTALL SOFTWARE ON THE VM INSTANCE
+	- In the SSH session, to update the Debian package list, execute the following command:
+		sudo apt-get update
+		
+	- To install Git, execute the following command:
+		sudo apt-get install git
+		
+	- To download the Node.js setup script, execute the following command:
+		curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+		
+	- To install npm and Node.js, execute the following command:
+		sudo apt install nodejs
+		
+	
+3. CONFIGURE THE VM TO RUN APPLICATION SOFTWARE
+	- To check the version of Node.js, execute the following command:
+		node -v
+			Result: You should see the Node.js version number 6.
+			
+	- To clone the class repository, execute the following command:
+		git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+		
+	- To change the working directory, execute the following command:
+		cd ~/training-data-analyst/courses/developingapps/nodejs/devenv/
+	
+	- To run a simple web server, execute the following command:
+		sudo node server/app.js
+		
+	- Return to the Cloud Console VM instances list, and click on the External IP address for the dev-instance.
+			Result: You should see a Hello GCP dev! message from Node.js.
+			
+	- To install the Node.js library for Compute Engine, execute the following command:
+		npm install
+	
+	- To run a simple Node.js application that lists Compute Engine instances, execute the following command:
+		node list-gce-instances.js
+			Result: Many details about your machine should appear in the terminal window.
+
+
+
+
+	
